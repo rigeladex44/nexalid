@@ -17,3 +17,12 @@
  .card:hover,.value:hover,.step:hover,.service-link:hover,.btn:hover span{transform:none}
  .nav,.studio,.btn,.navcta,.card,.value,.step,.service-link,.btn span{transition:none!important}
 }
+/* Slow ambient light behind the glass; animate transforms, never layout. */
+body:after{display:block;inset:-8%;z-index:-1;opacity:1;background:radial-gradient(ellipse at 18% 32%,rgba(56,151,98,.17),transparent 43%),radial-gradient(ellipse at 80% 66%,rgba(211,182,89,.15),transparent 42%),radial-gradient(ellipse at 65% 12%,rgba(154,198,168,.14),transparent 38%);transform:translate3d(0,0,0);pointer-events:none}
+.ambient-ready:after{animation:ambientLight 28s ease-in-out infinite alternate}
+.ambient-paused:after{animation-play-state:paused}
+@keyframes ambientLight{0%{transform:translate3d(-2%,-1%,0) scale(1)}50%{transform:translate3d(2%,2%,0) scale(1.035)}100%{transform:translate3d(3%,-2%,0) scale(1.06)}}
+.ambient-toggle{position:fixed;left:18px;bottom:18px;z-index:29;min-height:44px;padding:10px 14px;max-width:calc(100vw - 90px);border:1px solid #d4e3d0;border-radius:12px;background:#ffffffe0;color:#3b5a40;box-shadow:0 4px 16px #173b2608;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:11px;transition:background .2s,box-shadow .2s}
+.ambient-toggle:hover{background:#fff;box-shadow:0 6px 20px #173b2610}
+@media(max-width:700px){body:after{background:radial-gradient(ellipse at 5% 30%,rgba(56,151,98,.14),transparent 55%),radial-gradient(ellipse at 90% 75%,rgba(211,182,89,.13),transparent 50%)}.ambient-toggle{left:12px;bottom:16px;font-size:10px;padding:10px 12px}}
+@media(prefers-reduced-motion:reduce){body:after,.ambient-ready:after{animation:none!important;transform:none}.ambient-toggle{display:none}}

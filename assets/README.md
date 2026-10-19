@@ -47,4 +47,8 @@ Gambar memakai `background-size: cover` pada layer yang mengikuti viewport, sehi
 
 ## Alternatif background yang lebih tenang
 
-`assets/background-sage.webp` adalah alternatif generatif putih gading dengan sage lembut dan aksen champagne, tanpa motif ramai. Belum aktif. Untuk menggunakannya, ganti `--site-background` di `assets.css` menjadi `url("assets/background-sage.webp")`. Bagian tengah sengaja lapang agar konten dan efek kaca tetap nyaman dibaca.
+`assets/background-sage.webp` adalah alternatif generatif putih gading dengan sage lembut dan aksen champagne, tanpa motif ramai. Sudah aktif melalui `--site-background` di `assets.css`. Bagian tengah sengaja lapang agar konten dan efek kaca tetap nyaman dibaca.
+
+## Background bergerak
+
+Cahaya sage–emas pada `body:after` bergerak perlahan selama 28 detik per arah (`ambientLight` di `motion.css`). Gambar dasarnya tetap diam. Tombol **Jeda animasi latar** menyimpan pilihan di browser melalui localStorage; animasi juga berhenti saat tab tidak aktif atau Reduce motion menyala. Ubah durasi `28s` atau alpha gradient untuk mengatur tempo dan intensitas. Untuk memakai motif lama lagi, arahkan `--site-background` ke `assets/background.webp`.
