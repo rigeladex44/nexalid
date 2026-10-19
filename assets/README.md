@@ -44,3 +44,7 @@ Gambar memakai `background-size: cover` pada layer yang mengikuti viewport, sehi
 ## Motion
 
 `motion.css` mengatur hover, respons kartu hero terhadap kursor, dan bayangan navbar saat gulir. `motion.js` mengatur animasi masuk satu kali saat konten terlihat dan transisi isi FAQ. Untuk menyesuaikan tempo animasi masuk, ubah `duration: 760` (milidetik) dan jeda bertahap `65` di `motion.js`. Gulir navigasi tetap memakai `navigation.js`. Pengaturan perangkat **Reduce motion** dihormati, termasuk bila diubah saat halaman terbuka. Semua konten tetap terbaca tanpa JavaScript.
+
+## Alternatif background yang lebih tenang
+
+`assets/background-sage.webp` adalah alternatif generatif putih gading dengan sage lembut dan aksen champagne, tanpa motif ramai. Belum aktif. Untuk menggunakannya, ganti `--site-background` di `assets.css` menjadi `url("assets/background-sage.webp")`. Bagian tengah sengaja lapang agar konten dan efek kaca tetap nyaman dibaca.
