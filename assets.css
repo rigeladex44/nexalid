@@ -1,16 +1,16 @@
 /* Edit this file to personalize the website assets.
    Paths are relative to this file, next to index.html. */
 :root {
-  --site-background: url("assets/background.webp");
+  --site-background: none;
   --background-position: center center;
-  --background-overlay: rgba(13, 14, 16, 0.68);
+  --background-overlay: rgba(255, 255, 255, 0);
 }
 body:before {
   background-image: linear-gradient(var(--background-overlay), var(--background-overlay)), var(--site-background);
   background-position: center, var(--background-position);
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: #171719;
+  background-color: #ffffff;
 }
 .mark {
   display: block;

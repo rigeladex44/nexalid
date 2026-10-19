@@ -3,8 +3,9 @@
 File yang digunakan website:
 
 - `assets/logo.png`: logo hijau zamrud dan emas dengan latar transparan, digunakan pada navigasi, footer, dan favicon (ikon tab browser).
-- `assets/background.webp`: gambar background kantor gelap yang dibuat khusus untuk tema kaca. Ini gambar generatif, bukan foto kantor asli perusahaan.
-- `assets.css`: pengaturan gambar background, posisi, dan tingkat gelap. Terletak di folder utama repo.
+- `assets/background.webp`: background kantor generatif yang disimpan sebagai pilihan, saat ini tidak digunakan karena tema memakai latar putih bersih.
+- `assets.css`: pengaturan background dan ukuran logo.
+- `light.css`: tema putih bersih, panel kaca terang, dan warna teks; dimuat setelah `glass.css`.
 
 ## Melalui GitHub web
 
@@ -24,10 +25,11 @@ Di `assets.css`:
 
 ```css
 --background-position: center center;
---background-overlay: rgba(13, 14, 16, 0.68);
+--site-background: none;
+--background-overlay: rgba(255, 255, 255, 0);
 ```
 
-Angka `0.68` mengatur lapisan gelap. Naikkan ke `0.8` agar lebih gelap, turunkan ke `0.5` agar foto lebih terlihat. Pastikan tulisan tetap mudah dibaca. Background menggunakan `cover`, sehingga tepinya bisa terpotong mengikuti ukuran layar. Pakai gambar landscape setidaknya 1600 piksel dan sebaiknya berukuran di bawah 500 KB.
+Default `none` memakai latar putih tanpa foto. Untuk mengaktifkan foto lagi, ganti `none` menjadi `url("assets/background.webp")`. Angka terakhir pada `rgba` mengatur kekuatan lapisan putih; misalnya `0.8` membuat foto sangat lembut. Pastikan tulisan tetap mudah dibaca. Background menggunakan `cover`, sehingga tepinya bisa terpotong mengikuti ukuran layar. Pakai gambar landscape setidaknya 1600 piksel dan sebaiknya berukuran di bawah 500 KB.
 
 Simpan perubahan melalui commit. File yang baru di-commit di lingkungan chat harus di-push ke GitHub sebelum tampil di Vercel.
 
