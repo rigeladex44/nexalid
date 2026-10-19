@@ -41,7 +41,12 @@
         observer.unobserve(entry.target);
       });
     }, { threshold: .08, rootMargin: '0px 0px -24px 0px' });
-    targets.forEach(target => observer.observe(target));
+    function startReveals() { targets.forEach(target => observer.observe(target)); }
+    if (document.documentElement.dataset.pageLoading === 'true' || document.querySelector('.page-loader.is-leaving')) {
+      document.addEventListener('nexal:loaded', startReveals, { once: true });
+      // Bounded fallback if the loader script is interrupted.
+      setTimeout(startReveals, 3200);
+    } else startReveals();
   }
 
   document.querySelectorAll('#faq details').forEach(detail => {

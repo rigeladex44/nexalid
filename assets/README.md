@@ -52,3 +52,7 @@ Gambar memakai `background-size: cover` pada layer yang mengikuti viewport, sehi
 ## Background bergerak
 
 Cahaya sage–emas pada `body:after` bergerak perlahan selama 28 detik per arah (`ambientLight` di `motion.css`). Gambar dasarnya tetap diam. Animasi berhenti saat tab tidak aktif atau Reduce motion menyala. Tidak ada badge kontrol pada halaman. Ubah durasi `28s` atau alpha gradient untuk mengatur tempo dan intensitas. Untuk memakai motif lama lagi, arahkan `--site-background` ke `assets/background.webp`.
+
+## Layar pembuka
+
+`loader.css` dan `loader.js` menampilkan logo dengan cincin hijau–emas, lalu memudarkan overlay sebelum animasi konten dimulai. Durasi minimum normal 650ms, batas tunggu 2200ms ditambah fade 480ms. Klik atau keyboard melewati loader. Reduce motion menghilangkan jeda minimum dan efek gerak. Tanpa JavaScript overlay tersembunyi; jika logo gagal dimuat, halaman tetap terbuka. CSS juga membatasi tampilan overlay sampai 3 detik jika skrip terputus.
