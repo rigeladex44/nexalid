@@ -19,20 +19,28 @@
     // Reveal page content only after the overlay finishes fading.
     setTimeout(() => {
       loader.remove();
+      window.removeEventListener('resize', sizeLogoZoom);
       document.dispatchEvent(new Event('nexal:loaded'));
     }, reduced.matches ? 0 : 800);
     document.removeEventListener('keydown', dismiss);
     document.removeEventListener('pointerdown', dismiss);
   }
+  function sizeLogoZoom() {
+    // Fill either viewport orientation without distorting the logo.
+    const scale = Math.max(innerWidth / 82, innerHeight / 58) * 1.35;
+    loader.style.setProperty('--logo-full-scale', String(scale));
+  }
+  sizeLogoZoom();
+  window.addEventListener('resize', sizeLogoZoom);
   document.documentElement.dataset.pageLoading = 'true';
   loader.hidden = false;
-  maximumTimer = setTimeout(dismiss, 2200);
+  maximumTimer = setTimeout(dismiss, 3800);
   function ready() {
     const logo = loader.querySelector('img');
     const logoReady = logo?.decode ? logo.decode().catch(() => {}) : Promise.resolve();
     logoReady.then(() => {
       if (dismissed) return;
-      minimumTimer = setTimeout(dismiss, Math.max(0, (reduced.matches ? 0 : 1900) - (performance.now() - started)));
+      minimumTimer = setTimeout(dismiss, Math.max(0, (reduced.matches ? 0 : 3600) - (performance.now() - started)));
     });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready, { once: true });
