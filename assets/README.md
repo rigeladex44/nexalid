@@ -51,4 +51,4 @@ Gambar memakai `background-size: cover` pada layer yang mengikuti viewport, sehi
 
 ## Background bergerak
 
-Cahaya sage–emas pada `body:after` bergerak perlahan selama 28 detik per arah (`ambientLight` di `motion.css`). Gambar dasarnya tetap diam. Tombol **Jeda animasi latar** menyimpan pilihan di browser melalui localStorage; animasi juga berhenti saat tab tidak aktif atau Reduce motion menyala. Ubah durasi `28s` atau alpha gradient untuk mengatur tempo dan intensitas. Untuk memakai motif lama lagi, arahkan `--site-background` ke `assets/background.webp`.
+Cahaya sage–emas pada `body:after` bergerak perlahan selama 28 detik per arah (`ambientLight` di `motion.css`). Gambar dasarnya tetap diam. Animasi berhenti saat tab tidak aktif atau Reduce motion menyala. Tidak ada badge kontrol pada halaman. Ubah durasi `28s` atau alpha gradient untuk mengatur tempo dan intensitas. Untuk memakai motif lama lagi, arahkan `--site-background` ke `assets/background.webp`.

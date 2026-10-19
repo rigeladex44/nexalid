@@ -3,27 +3,14 @@
   'use strict';
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
-  // Keep decorative motion optional and remember the viewer's choice.
-  const ambientToggle = document.querySelector('.ambient-toggle');
-  let ambientPaused = false;
-  try { ambientPaused = localStorage.getItem('nexal-ambient-paused') === 'true'; } catch (_) {}
+  // Pause decorative light offscreen and respect device motion preferences.
   function syncAmbient() {
     document.body.classList.toggle('ambient-ready', !reduced.matches);
-    document.body.classList.toggle('ambient-paused', ambientPaused || document.hidden);
-    if (!ambientToggle) return;
-    ambientToggle.hidden = reduced.matches;
-    ambientToggle.setAttribute('aria-pressed', String(ambientPaused));
-    ambientToggle.textContent = ambientPaused ? 'Lanjutkan animasi latar' : 'Jeda animasi latar';
+    document.body.classList.toggle('ambient-paused', document.hidden);
   }
-  ambientToggle?.addEventListener('click', () => {
-    ambientPaused = !ambientPaused;
-    try { localStorage.setItem('nexal-ambient-paused', String(ambientPaused)); } catch (_) {}
-    syncAmbient();
-  });
   reduced.addEventListener('change', syncAmbient);
   document.addEventListener('visibilitychange', syncAmbient);
   syncAmbient();
-
   const running = new Set();
   const seen = new WeakSet();
   const targets = [...new Set(document.querySelectorAll(
