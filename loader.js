@@ -20,7 +20,7 @@
     setTimeout(() => {
       loader.remove();
       document.dispatchEvent(new Event('nexal:loaded'));
-    }, reduced.matches ? 0 : 480);
+    }, reduced.matches ? 0 : 800);
     document.removeEventListener('keydown', dismiss);
     document.removeEventListener('pointerdown', dismiss);
   }
@@ -31,7 +31,8 @@
     const logo = loader.querySelector('img');
     const logoReady = logo?.decode ? logo.decode().catch(() => {}) : Promise.resolve();
     logoReady.then(() => {
-      minimumTimer = setTimeout(dismiss, Math.max(0, (reduced.matches ? 0 : 650) - (performance.now() - started)));
+      if (dismissed) return;
+      minimumTimer = setTimeout(dismiss, Math.max(0, (reduced.matches ? 0 : 1900) - (performance.now() - started)));
     });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready, { once: true });
@@ -39,4 +40,5 @@
   document.addEventListener('keydown', dismiss);
   document.addEventListener('pointerdown', dismiss, { passive: true });
   window.addEventListener('pagehide', dismiss, { once: true });
+  reduced.addEventListener('change', () => { if (reduced.matches) dismiss(); });
 })();

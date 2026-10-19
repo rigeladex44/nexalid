@@ -55,4 +55,4 @@ Cahaya sage–emas pada `body:after` bergerak perlahan selama 28 detik per arah 
 
 ## Layar pembuka
 
-`loader.css` dan `loader.js` menampilkan logo dengan cincin hijau–emas, lalu memudarkan overlay sebelum animasi konten dimulai. Durasi minimum normal 650ms, batas tunggu 2200ms ditambah fade 480ms. Klik atau keyboard melewati loader. Reduce motion menghilangkan jeda minimum dan efek gerak. Tanpa JavaScript overlay tersembunyi; jika logo gagal dimuat, halaman tetap terbuka. CSS juga membatasi tampilan overlay sampai 3 detik jika skrip terputus.
+`loader.css` dan `loader.js` menampilkan logo dengan cincin hijau–emas, lalu memudarkan overlay sebelum animasi konten dimulai. Logo melakukan zoom in selama 1900ms, lalu membesar sedikit lagi dan memudar selama 800ms: total normal sekitar 2,7 detik. Batas tunggu 2200ms ditambah fade 800ms (maksimum sekitar 3 detik). Klik atau keyboard melewati loader. Reduce motion menghilangkan jeda minimum dan efek gerak. Tanpa JavaScript overlay tersembunyi; jika logo gagal dimuat, halaman tetap terbuka. CSS juga membatasi tampilan overlay sampai 3,2 detik jika skrip terputus.
