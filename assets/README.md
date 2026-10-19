@@ -3,7 +3,7 @@
 File yang digunakan website:
 
 - `assets/logo.png`: logo hijau zamrud dan emas dengan latar transparan, digunakan pada navigasi, footer, dan favicon (ikon tab browser).
-- `assets/background.webp`: background kantor generatif yang disimpan sebagai pilihan, saat ini tidak digunakan karena tema memakai latar putih bersih.
+- `assets/background.webp`: background ornamen putih–hijau yang diadaptasi dari referensi gambar pengguna. Dipakai sebagai latar viewport dengan skala proporsional (`cover`), tanpa diulang.
 - `assets.css`: pengaturan background dan ukuran logo.
 - `light.css`: tema putih bersih, panel kaca terang, dan warna teks; dimuat setelah `glass.css`.
 
@@ -24,15 +24,19 @@ File yang digunakan website:
 Di `assets.css`:
 
 ```css
---background-position: center center;
---site-background: none;
+--background-position: left center;
+--site-background: url("assets/background.webp");
 --background-overlay: rgba(255, 255, 255, 0);
 ```
 
-Default `none` memakai latar putih tanpa foto. Untuk mengaktifkan foto lagi, ganti `none` menjadi `url("assets/background.webp")`. Angka terakhir pada `rgba` mengatur kekuatan lapisan putih; misalnya `0.8` membuat foto sangat lembut. Pastikan tulisan tetap mudah dibaca. Background menggunakan `cover`, sehingga tepinya bisa terpotong mengikuti ukuran layar. Pakai gambar landscape setidaknya 1600 piksel dan sebaiknya berukuran di bawah 500 KB.
+Untuk kembali ke putih polos, ubah `--site-background` menjadi `none`. Angka terakhir pada `rgba` mengatur kekuatan lapisan putih; misalnya `0.8` membuat foto sangat lembut. Pastikan tulisan tetap mudah dibaca. Background menggunakan `cover`, sehingga tepinya bisa terpotong mengikuti ukuran layar. Pakai gambar landscape setidaknya 1600 piksel dan sebaiknya berukuran di bawah 500 KB.
 
 Simpan perubahan melalui commit. File yang baru di-commit di lingkungan chat harus di-push ke GitHub sebelum tampil di Vercel.
 
 ## Warna brand
 
-Aksen tombol dan navigasi memakai hijau zamrud (`#09845a`, `#045b3d`), dengan emas (`#dfbd58`, `#d8bd62`) untuk penekanan teks dan ikon. Pengaturan ada di `glass.css`. Background foto tetap terpisah dan dapat diganti sendiri.
+Aksen tombol dan navigasi memakai hijau zamrud (`#09845a`, `#045b3d`), dengan emas (`#dfbd58`, `#d8bd62`) untuk penekanan teks dan ikon. Pengaturan dasar ada di `glass.css` dan tema terang di `light.css`. Background foto tetap terpisah dan dapat diganti sendiri.
+
+## Skala background responsif
+
+Gambar memakai `background-size: cover` pada layer yang mengikuti viewport, sehingga tidak gepeng atau memanjang sepanjang halaman. Sebagian tepi gambar dapat terpotong sesuai rasio layar. Desktop memakai posisi `left center`; pada layar sampai 700px posisi menjadi `28% center`. Ubah nilai ini di `assets.css` untuk menggeser motif. Panel utama memakai putih 86% dan blur 8px, diatur di akhir `light.css`, agar ornamen terlihat lembut tanpa mengganggu teks.

@@ -16,3 +16,8 @@ main{background:#fff;border-color:#e2e9e2;box-shadow:0 16px 60px #1a49300a}.hero
 main h1[tabindex="-1"]:focus,main h2[tabindex="-1"]:focus{outline:none}
 @media(max-width:1000px){.links{position:absolute}.nav-indicator{display:none}.indicator-ready a.active{background:linear-gradient(145deg,#087a50,#045537)}.links.open{animation:menuEntrance .22s ease-out;transform-origin:top center}@keyframes menuEntrance{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}}
 @media(prefers-reduced-motion:reduce){.nav-indicator,.links a{transition:none!important}.links.open{animation:none!important}}
+
+/* Keep the ornamental wallpaper visible through the glass shell. */
+main{background:rgba(255,255,255,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.soft{background:rgba(248,250,247,.65)}
+@supports not (backdrop-filter:blur(1px)){main{background:rgba(255,255,255,.95)}}
