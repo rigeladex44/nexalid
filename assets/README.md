@@ -39,4 +39,4 @@ Aksen tombol dan navigasi memakai hijau zamrud (`#09845a`, `#045b3d`), dengan em
 
 ## Skala background responsif
 
-Gambar memakai `background-size: cover` pada layer yang mengikuti viewport, sehingga tidak gepeng atau memanjang sepanjang halaman. Sebagian tepi gambar dapat terpotong sesuai rasio layar. Desktop memakai posisi `left center`; pada layar sampai 700px posisi menjadi `28% center`. Ubah nilai ini di `assets.css` untuk menggeser motif. Panel utama memakai putih 86% dan blur 8px, diatur di akhir `light.css`, agar ornamen terlihat lembut tanpa mengganggu teks.
+Gambar memakai `background-size: cover` pada layer yang mengikuti viewport, sehingga tidak gepeng atau memanjang sepanjang halaman. Sebagian tepi gambar dapat terpotong sesuai rasio layar. Desktop memakai posisi `left center`; pada layar sampai 700px posisi menjadi `28% center`. Ubah nilai ini di `assets.css` untuk menggeser motif. Panel utama memakai putih 42% dan blur 3px, diatur di akhir `light.css`, agar ornamen terlihat lembut tanpa mengganggu teks.
