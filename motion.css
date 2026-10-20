@@ -39,3 +39,7 @@ body:after{display:block;inset:-8%;z-index:-1;opacity:1;background:radial-gradie
 .card>*{position:relative;z-index:1}
 @media(hover:hover) and (pointer:fine){.card.pointer-lit:after{opacity:1}.card:hover .icon{transform:translateY(-2px) rotate(-4deg);background:#e5f2df}.card .icon{transition:transform .6s var(--motion-ease),background .4s}}
 @media(prefers-reduced-motion:reduce){.motion-word{translate:none!important;rotate:none!important}.card:after{display:none}.card:hover .icon{transform:none}}
+
+/* Neutral controls: SVG icons keep their shape across platforms. */
+.menu,.backtop{display:inline-grid;place-items:center}
+@media(min-width:1001px){.menu{display:none}}
