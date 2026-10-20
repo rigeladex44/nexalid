@@ -24,3 +24,18 @@ body:after{display:block;inset:-8%;z-index:-1;opacity:1;background:radial-gradie
 @keyframes ambientLight{0%{transform:translate3d(-2%,-1%,0) scale(1)}50%{transform:translate3d(2%,2%,0) scale(1.035)}100%{transform:translate3d(3%,-2%,0) scale(1.06)}}
 @media(max-width:700px){body:after{background:radial-gradient(ellipse at 5% 30%,rgba(56,151,98,.14),transparent 55%),radial-gradient(ellipse at 90% 75%,rgba(211,182,89,.13),transparent 50%)}}
 @media(prefers-reduced-motion:reduce){body:after,.ambient-ready:after{animation:none!important;transform:none}}
+/* Editorial headline timing and light that follows desktop card interaction. */
+.motion-word{display:inline-block;transform-origin:left bottom}
+.heading .eyebrow{position:relative;padding-bottom:9px}
+.heading .eyebrow:after{content:'';position:absolute;bottom:0;left:0;width:44px;height:1px;background:linear-gradient(90deg,#0c8755,#bfa446);transform:scaleX(1);transform-origin:left}
+@media(prefers-reduced-motion:no-preference){
+ .heading.motion-entered .eyebrow:after{animation:sectionLine 1s .15s cubic-bezier(.22,1,.36,1) both}
+ .step.motion-entered:after{animation:sectionLine 1.1s .2s cubic-bezier(.22,1,.36,1) both}
+ @keyframes sectionLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+}
+.step{position:relative;overflow:hidden}
+.step:after{content:'';position:absolute;top:0;left:20px;right:20px;height:2px;background:linear-gradient(90deg,#1a8e5b66,#c2a34c66);transform-origin:left}
+.card:after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(240px circle at var(--light-x,50%) var(--light-y,50%),#fff9,transparent 70%);opacity:0;transition:opacity .45s ease}
+.card>*{position:relative;z-index:1}
+@media(hover:hover) and (pointer:fine){.card.pointer-lit:after{opacity:1}.card:hover .icon{transform:translateY(-2px) rotate(-4deg);background:#e5f2df}.card .icon{transition:transform .6s var(--motion-ease),background .4s}}
+@media(prefers-reduced-motion:reduce){.motion-word{translate:none!important;rotate:none!important}.card:after{display:none}.card:hover .icon{transform:none}}

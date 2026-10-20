@@ -56,3 +56,7 @@ Cahaya sage–emas pada `body:after` bergerak perlahan selama 28 detik per arah 
 ## Layar pembuka
 
 `loader.css` dan `loader.js` menampilkan logo pada ukuran tetap 110 × 78px. Logo muncul perlahan, disusul satu sapuan cahaya emas yang mengikuti transparansi logo, lalu overlay memudar selama 600ms. Total normal sekitar 2,4 detik; batas tunggu 2200ms ditambah fade (maksimum sekitar 2,8 detik). Tidak ada pembesaran logo. Klik atau keyboard melewati loader. Reduce motion menghilangkan jeda minimum dan efek gerak. Tanpa JavaScript overlay tersembunyi; logo gagal dimuat tidak menghalangi halaman. CSS membatasi tampilan overlay sampai 3 detik jika skrip terputus.
+
+## Detail motion editorial
+
+Judul hero muncul per kata (1000ms, jeda 75ms) dengan teks dan penekanan aslinya dipertahankan. Garis aksen heading serta kartu proses muncul sekali ketika masuk viewport. Kartu layanan memakai sorotan lembut mengikuti kursor pada perangkat pointer presisi; tidak dijalankan pada layar sentuh atau Reduce motion. Semua pengaturan ada di `motion.js` dan `motion.css`, tanpa library tambahan. Konten tetap terbaca tanpa JavaScript.
