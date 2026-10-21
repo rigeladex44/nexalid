@@ -9,5 +9,12 @@ body.video-background-active:after{opacity:0;animation:none}
 .intro-skip{position:absolute;right:24px;bottom:24px;padding:12px 18px;min-height:44px;color:#244631;background:#ffffffc9;border:1px solid #ffffff80;border-radius:10px;font-size:12px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .loader-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 @keyframes loaderFailsafe{to{visibility:hidden;pointer-events:none}}
-@media(max-width:700px){.intro-video{object-fit:contain}.intro-skip{right:16px;bottom:20px}}
+@media(max-width:700px){.intro-video{object-fit:cover}.intro-skip{right:max(16px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom))}}
 @media(prefers-reduced-motion:reduce){.page-loader{transition:none}.video-background{display:none}}
+
+@media(max-width:700px) and (orientation:portrait){.page-loader{background-image:url("assets/video/poster-mobile.webp")}}
+/* Keep the complete portrait artwork visible on taller phone screens.
+   Its edges fade into a full-screen matching poster, avoiding hard bands. */
+@media(max-width:700px) and (orientation:portrait){
+ .intro-video{position:absolute;left:0;top:50%;width:100%;height:auto;aspect-ratio:9/16;object-fit:contain;transform:translateY(-50%);mask-image:linear-gradient(transparent,#000 4%,#000 96%,transparent);-webkit-mask-image:linear-gradient(transparent,#000 4%,#000 96%,transparent)}
+}

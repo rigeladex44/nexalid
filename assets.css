@@ -37,3 +37,5 @@ body:before {
 @media (max-width: 700px) {
   :root { --background-position: 28% center; }
 }
+
+@media(max-width:700px) and (orientation:portrait){:root{--site-background:url("assets/video/poster-mobile.webp");--background-position:center center}}

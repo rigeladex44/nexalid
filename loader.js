@@ -7,13 +7,22 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const saveData = navigator.connection?.saveData === true;
   if (!loader || !intro || !background) return;
+  const mobilePortrait = matchMedia('(max-width: 700px) and (orientation: portrait)');
+  function sourceFor(video) {
+    return mobilePortrait.matches ? video.dataset.mobileSrc : video.dataset.src;
+  }
+  function updatePosters() {
+    intro.poster = mobilePortrait.matches ? 'assets/video/intro-poster-mobile.webp' : 'assets/video/intro-poster.webp';
+    background.poster = mobilePortrait.matches ? 'assets/video/poster-mobile.webp' : 'assets/video/poster.webp';
+  }
+  updatePosters();
   let dismissed = false;
   let startTimer;
   let stallTimer;
   let maximumTimer;
   function playBackground() {
     if (reduced.matches || saveData || document.hidden) return;
-    if (!background.getAttribute('src')) background.src = background.dataset.src;
+    if (!background.getAttribute('src')) background.src = sourceFor(background);
     background.muted = true;
     background.play().catch(() => { background.parentElement.hidden = true; });
   }
@@ -52,7 +61,7 @@
   } else {
     loader.hidden = false;
     intro.muted = true;
-    intro.src = intro.dataset.src;
+    intro.src = sourceFor(intro);
     startTimer = setTimeout(dismiss, 2500);
     maximumTimer = setTimeout(dismiss, 9500);
     intro.addEventListener('playing', () => clearTimeout(startTimer));
@@ -84,6 +93,16 @@
       background.pause();
       dismiss();
     } else if (dismissed) playBackground();
+  });
+  mobilePortrait.addEventListener('change', () => {
+    updatePosters();
+    // End the intro when rotating so its previous aspect ratio never crops the logo.
+    if (!dismissed) dismiss();
+    if (dismissed && background.getAttribute('src')) {
+      background.pause();
+      background.src = sourceFor(background);
+      playBackground();
+    }
   });
   window.addEventListener('pagehide', dismiss, { once: true });
 })();
