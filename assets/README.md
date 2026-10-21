@@ -2,7 +2,7 @@
 
 File yang digunakan website:
 
-- `assets/logo.png`: logo hijau zamrud dan emas dengan latar transparan, digunakan pada navigasi dan favicon (ikon tab browser).
+- `assets/logo.png`: logo hijau zamrud dan emas dengan latar transparan, digunakan pada navigasi, footer, dan favicon (ikon tab browser).
 - `assets/background.webp`: background ornamen putih–hijau yang diadaptasi dari referensi gambar pengguna. Dipakai sebagai latar viewport dengan skala proporsional (`cover`), tanpa diulang.
 - `assets.css`: pengaturan background dan ukuran logo.
 - `light.css`: tema putih bersih, panel kaca terang, dan warna teks; dimuat setelah `glass.css`.
@@ -70,6 +70,6 @@ Percobaan ini disimpan dalam commit terpisah. Untuk undo, revert commit percobaa
 
 Judul hero muncul per kata (1000ms, jeda 75ms) dengan teks dan penekanan aslinya dipertahankan. Garis aksen heading serta kartu proses muncul sekali ketika masuk viewport. Kartu layanan memakai sorotan lembut mengikuti kursor pada perangkat pointer presisi; tidak dijalankan pada layar sentuh atau Reduce motion. Semua pengaturan ada di `motion.js` dan `motion.css`, tanpa library tambahan. Konten tetap terbaca tanpa JavaScript.
 
-## Logo lengkap footer
+## Tulisan logo pada header
 
-`assets/logo-footer.webp` adalah logo lengkap transparan dengan simbol, tulisan NEXALID, dan PT INDONEXAL BERKAH BERSAMA. Dipakai khusus di footer; logo navbar tetap terpisah. Untuk mengganti, upload WebP transparan dengan nama sama atau ubah `src` pada `.footer-brand` di `index.html`. Lebar desktop 260px dan mobile 230px, diatur di akhir `assets.css`; tinggi otomatis mengikuti proporsi.
+`assets/wordmark.webp` memuat tulisan NEXALID transparan tanpa simbol dan nama perusahaan. Dipasang di samping `assets/logo.png` pada header; footer tetap menggunakan tampilan sebelumnya. Ukuran desktop 132 × 26px dan mobile 116 × 23px diatur pada `.brand-wordmark` dalam `assets.css`. `object-fit: cover` memotong margin transparan aset tanpa meregangkan tulisan. Untuk mengganti, upload file dengan nama sama atau ubah `src` dalam header `index.html`.
