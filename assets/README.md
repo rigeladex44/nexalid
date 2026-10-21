@@ -53,9 +53,18 @@ Gambar memakai `background-size: cover` pada layer yang mengikuti viewport, sehi
 
 Cahaya sage–emas pada `body:after` bergerak perlahan selama 28 detik per arah (`ambientLight` di `motion.css`). Gambar dasarnya tetap diam. Animasi berhenti saat tab tidak aktif atau Reduce motion menyala. Tidak ada badge kontrol pada halaman. Ubah durasi `28s` atau alpha gradient untuk mengatur tempo dan intensitas. Untuk memakai motif lama lagi, arahkan `--site-background` ke `assets/background.webp`.
 
-## Layar pembuka
+## Layar pembuka video (versi percobaan)
 
-`loader.css` dan `loader.js` menampilkan logo pada ukuran tetap 110 × 78px. Logo muncul perlahan, disusul satu sapuan cahaya emas yang mengikuti transparansi logo, lalu overlay memudar selama 600ms. Total normal sekitar 2,4 detik; batas tunggu 2200ms ditambah fade (maksimum sekitar 2,8 detik). Tidak ada pembesaran logo. Klik atau keyboard melewati loader. Reduce motion menghilangkan jeda minimum dan efek gerak. Tanpa JavaScript overlay tersembunyi; logo gagal dimuat tidak menghalangi halaman. CSS membatasi tampilan overlay sampai 3 detik jika skrip terputus.
+`loader.js` dan `loader.css` memakai video pengguna sebagai intro, kemudian mengalihkan ke background tanpa logo sekitar detik ke-6. Fade berlangsung 850ms. File yang dipakai:
+
+- `assets/video/brand-intro.mp4`: intro 8 detik, H.264 720p, tanpa audio, sekitar 839 KB.
+- `assets/video/background-loop.mp4`: potongan detik 6–8 ditambah versi mundurnya; loop 4 detik tanpa kemunculan logo ulang.
+- `assets/video/poster.webp`: frame latar tanpa logo, juga dipakai untuk fallback statis.
+- `assets/video/intro-poster.webp`: frame awal video intro.
+
+Video diputar muted dan playsinline. Intro pada ponsel memakai `contain` agar logo lengkap terlihat; background memakai `cover`. Tombol **Lewati intro**, klik, atau keyboard melewati pembuka. Intro gagal dimuat atau autoplay ditolak tidak menghalangi halaman. Reduce motion dan Save-Data melewati intro tanpa mengunduh video. Video berhenti ketika tab disembunyikan. Batas tunggu awal 2500ms, jeda buffering 1800ms, dan maksimum 9500ms; CSS menutup overlay paling lambat 10,5 detik bila skrip terputus.
+
+Percobaan ini disimpan dalam commit terpisah. Untuk undo, revert commit percobaan tersebut; aset serta loader CSS sebelumnya akan kembali. Jangan reset atau menimpa perubahan lain.
 
 ## Detail motion editorial
 

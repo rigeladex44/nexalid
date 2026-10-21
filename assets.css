@@ -1,7 +1,7 @@
 /* Edit this file to personalize the website assets.
    Paths are relative to this file, next to index.html. */
 :root {
-  --site-background: url("assets/background-sage.webp");
+  --site-background: url("assets/video/poster.webp");
   --background-position: center center;
   --background-overlay: rgba(255, 255, 255, 0);
 }

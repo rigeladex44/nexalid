@@ -76,7 +76,7 @@
     if (document.documentElement.dataset.pageLoading === 'true' || document.querySelector('.page-loader.is-leaving')) {
       document.addEventListener('nexal:loaded', startReveals, { once: true });
       // Bounded fallback if the loader script is interrupted.
-      setTimeout(startReveals, 3200);
+      setTimeout(startReveals, 11000);
     } else startReveals();
   }
 
